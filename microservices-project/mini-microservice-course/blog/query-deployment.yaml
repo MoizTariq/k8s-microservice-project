@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Users\MOIZ\microservices-project\mini-microservice-course\blog\kompose-windows-amd64.exe convert -f docker-compose.yml
+    kompose.version: 1.27.0 (b0ed6a2c9)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: query
+  name: query
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: query
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\Users\MOIZ\microservices-project\mini-microservice-course\blog\kompose-windows-amd64.exe convert -f docker-compose.yml
+        kompose.version: 1.27.0 (b0ed6a2c9)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: query
+    spec:
+      containers:
+        - image: query
+          name: query
+          ports:
+            - containerPort: 4002
+          resources: {}
+      restartPolicy: Always
+status: {}
